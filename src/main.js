@@ -347,18 +347,18 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
         }
 
         loadPromises.push(createSampler('kick', {
-            urls: { C1: "./samples/kick.wav" },
+            urls: { C1: "./assets/samples/kick.wav" },
             envelope: { attack: 0.001, release: 0.7 }
         }));
 
         loadPromises.push(createSampler('snare', {
-            urls: { C1: "./samples/snare.wav" },
+            urls: { C1: "./assets/samples/snare.wav" },
             envelope: { attack: 0.001, release: 0.2 }
         }));
 
         loadPromises.push(new Promise(resolve => {
         const sampler = new Tone.Sampler({
-            urls: { C1: "./samples/open_hi_hat.wav" },
+            urls: { C1: "./assets/samples/open_hi_hat.wav" },
             envelope: { attack: 0.001, release: 0.5 },
             onload: resolve // kan ook zo, makkelijker
         });
@@ -368,7 +368,7 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
      
         loadPromises.push(new Promise(resolve => {
         const sampler = new Tone.Sampler({
-            urls: { C1: "./samples/closed_hi_hat.wav" },
+            urls: { C1: "./assets/samples/closed_hi_hat.wav" },
             envelope: { attack: 0.001, release: 0.2 },
             onload: resolve  // makkelijkste manier om te wachten tot geladen
         });
@@ -378,13 +378,13 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
 
             //  Cymbal
         loadPromises.push(createSampler('cymbal', {
-            urls: { C1: "./samples/cymbal.wav" },
+            urls: { C1: "./assets/samples/cymbal.wav" },
             envelope: { attack: 0.001, release: 0.6 }
         }));
 
         //  Tom
         loadPromises.push(createSampler('tom', {
-            urls: { C1: "./samples/tom.wav" },
+            urls: { C1: "./assets/samples/tom.wav" },
             envelope: { attack: 0.001, release: 0.3 }
         }));
 
@@ -405,11 +405,11 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
 
             instruments['bass'] = new Tone.Sampler({
                 urls: {
-                    "G2": "./samples/bass_G2.wav",
-                    "D3": "./samples/bass_D3.wav",
-                    "C3": "./samples/bass_C3.wav",
-                    "A2": "./samples/bass_A2.wav",
-                    "E2": "./samples/bass_E2.wav",
+                    "G2": "./assets/samples/bass_G2.wav",
+                    "D3": "./assets/samples/bass_D3.wav",
+                    "C3": "./assets/samples/bass_C3.wav",
+                    "A2": "./assets/samples/bass_A2.wav",
+                    "E2": "./assets/samples/bass_E2.wav",
                 },
                 release: 1.5,
                 onload: resolve
