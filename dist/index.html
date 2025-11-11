@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beat Sequencer</title>
+    <link rel="icon" href="/assets/headphones-D8lkVTNw.png" type="image/png">
+    <link
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-Bm6Kp3K1.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CiIIOGRt.css">
+  </head>
+  <body>
+    <div id="startScreen">
+      <button id="homePageStartButton">Start Sequencer</button>
+    </div>
+    <div id="app">
+      <div id="loading-alert" class="hidden">
+        <div class="loader"></div>
+        <p>Een moment geduld a.u.b., audio wordt geladen...</p>
+      </div>
+ 
+      <div class="main-layout">
+        <div id="noteCanvasContainer"></div>
+        <div class="sidebar-wrapper">
+          <div class="sidebar">
+            <button id="btnStart">
+              <i class="fas fa-play icon-start"></i> Start
+            </button>
+            <button id="btnPause">
+              <i class="fas fa-pause icon-pause"></i> Pauze
+            </button>
+            <button id="btnStop">
+              <i class="fas fa-stop icon-stop"></i> Stop
+            </button>
+            <button id="btnResetAll">
+              <i class="fas fa-rotate-right icon-reset"></i> Reset
+            </button>
+
+            <div class="dropdown-preset">
+              <button class="dropdown-preset-toggle">
+                <i class="fas fa-magic icon-preset"></i> Preset
+                <i class="fas fa-caret-down"></i>
+              </button>
+              <div class="dropdown-preset-content">
+                <a href="#" data-preset="1">Classic Beat</a>
+                <a href="#" data-preset="2">Rap Beat</a>
+              </div>
+            </div>
+
+            <label for="bpmSlider">BPM: <span id="bpmValue">100</span></label>
+            <input
+              type="range"
+              id="bpmSlider"
+              min="60"
+              max="140"
+              value="100"
+              step="1"
+            />
+
+            <label for="volumeSlider"
+              >Volume: <span id="volumeValue">50%</span></label
+            >
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="100"
+              value="50"
+            />
+
+            <div class="loop_container">
+              <input
+              type="range"
+              id="loopCount"
+              min="1"
+              max="16"
+              step="1"
+              value="1"
+            />
+            <label for="loopCount">
+              Duration: <span id="loopValue">1 loop</span>
+            </label>
+              <button id="recordDownloadBtn">📥 Download Beat</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sequencer">
+          <div class="sequencer-container all-steps-container">
+            <div class="rhythm-section">
+              <div class="sounds sounds-labels label-column">
+                <button class="drum-label" data-sound="snare">Snare</button>
+                <button class="drum-label" data-sound="openhihat">
+                  HiHat (Open)
+                </button>
+                <button class="drum-label" data-sound="hihat">
+                  HiHat (Closed)
+                </button>
+                <button class="drum-label" data-sound="cymbal">Cymbal</button>
+                <button class="drum-label" data-sound="tom">Tom</button>
+                <button class="drum-label" data-sound="kick">Kick</button>
+              </div>
+              <div class="steps">
+                <div class="row" data-sound="snare"></div>
+                <div class="row" data-sound="openhihat"></div>
+                <div class="row" data-sound="hihat"></div>
+                <div class="row" data-sound="cymbal"></div>
+                <div class="row" data-sound="tom"></div>
+                <div class="row" data-sound="kick"></div>
+              </div>
+              <div class="instrument-icon-column">
+                <div class="instrument-icon" data-tooltip="Drums">
+                  <i class="fas fa-music"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="melody-section">
+              <div class="melody-labels label-column">
+                <button class="note-label" data-note="C6">C6</button>
+                <button class="note-label" data-note="B5">B5</button>
+                <button class="note-label" data-note="A5">A5</button>
+                <button class="note-label" data-note="G5">G5</button>
+                <button class="note-label" data-note="F5">F5</button>
+                <button class="note-label" data-note="E5">E5</button>
+                <button class="note-label" data-note="D5">D5</button>
+                <button class="note-label" data-note="C5">C5</button>
+                <button class="note-label" data-note="B4">B4</button>
+                <button class="note-label" data-note="A4">A4</button>
+                <button class="note-label" data-note="G4">G4</button>
+                <button class="note-label" data-note="F4">F4</button>
+                <button class="note-label" data-note="E4">E4</button>
+                <button class="note-label" data-note="D4">D4</button>
+                <button class="note-label" data-note="C4">C4</button>
+              </div>
+              <div class="melody-steps"></div>
+              <div class="instrument-icon-column">
+                <div class="instrument-icon" data-tooltip="Piano">
+                  <i class="fas fa-music"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="piano-chord-section">
+              <div class="piano-chord-labels label-column">
+                <button class="chord-label" data-chord="Am">Am</button>
+                <button class="chord-label" data-chord="G">G</button>
+                <button class="chord-label" data-chord="F">F</button>
+                <button class="chord-label" data-chord="D">D</button>
+                <button class="chord-label" data-chord="C">C</button>
+              </div>
+              <div class="piano-chord-steps"></div>
+              <div class="instrument-icon-column">
+                <div class="instrument-icon" data-tooltip="Piano Chords">
+                  <i class="fas fa-music"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="bass-section">
+              <div class="bass-labels label-column">
+                <button class="bass-note-label" data-note="G3">G3</button>
+                <button class="bass-note-label" data-note="D3">D3</button>
+                <button class="bass-note-label" data-note="C3">C3</button>
+                <button class="bass-note-label" data-note="A2">A2</button>
+                <button class="bass-note-label" data-note="E2">E2</button>
+              </div>
+              <div class="bass-steps"></div>
+              <div class="instrument-icon-column">
+                <div class="instrument-icon" data-tooltip="Bass Guitar">
+                  <i class="fas fa-music"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
