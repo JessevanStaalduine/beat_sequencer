@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: './', // <--- gebruik relatieve paden in plaats van absolute
-});
+  base: '/beat_sequencer/', // let op: exact de naam van je repo
+})
