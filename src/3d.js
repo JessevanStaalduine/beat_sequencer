@@ -27,13 +27,13 @@ light.position.set(1, 1, 1).normalize();
 scene.add(light);
 
 // Texture laden (uit public folder)
-const aoTexture = new THREE.TextureLoader().load('./public/textures/internal_ground_ao_texture.jpeg');
+const aoTexture = new THREE.TextureLoader().load('./textures/internal_ground_ao_texture.jpeg');
 
 // Model laden (uit public folder)
 const loader = new GLTFLoader();
 let model;
 
-loader.load('./public/models/Nota 2.glb',
+loader.load('./models/Nota 2.glb',
   (gltf) => {
     model = gltf.scene;
 
