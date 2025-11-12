@@ -1,4 +1,7 @@
-console.log('Base path:', import.meta.env.BASE_URL);
+// npm run build
+// git add .
+// git commit -m "Fix for GitHub Pages"
+// git push origin main
 
 let recordButtonEnabled = false;
 
@@ -349,18 +352,18 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
         }
 
         loadPromises.push(createSampler('kick', {
-            urls: { C1: "./public/samples/kick.wav" },
+            urls: { C1: "/beat_sequencer/samples/kick.wav" },
             envelope: { attack: 0.001, release: 0.7 }
         }));
 
         loadPromises.push(createSampler('snare', {
-            urls: { C1: "./public/samples/snare.wav" },
+            urls: { C1: "/beat_sequencer/samples/snare.wav" },
             envelope: { attack: 0.001, release: 0.2 }
         }));
 
         loadPromises.push(new Promise(resolve => {
         const sampler = new Tone.Sampler({
-            urls: { C1: "./public/samples/open_hi_hat.wav" },
+            urls: { C1: "/beat_sequencer/samples/open_hi_hat.wav" },
             envelope: { attack: 0.001, release: 0.5 },
             onload: resolve // kan ook zo, makkelijker
         });
@@ -370,7 +373,7 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
      
         loadPromises.push(new Promise(resolve => {
         const sampler = new Tone.Sampler({
-            urls: { C1: "./public/samples/closed_hi_hat.wav" },
+            urls: { C1: "/beat_sequencer/samples/closed_hi_hat.wav" },
             envelope: { attack: 0.001, release: 0.2 },
             onload: resolve  // makkelijkste manier om te wachten tot geladen
         });
@@ -380,13 +383,13 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
 
             //  Cymbal
         loadPromises.push(createSampler('cymbal', {
-            urls: { C1: "./public/samples/cymbal.wav" },
+            urls: { C1: "/beat_sequencer/samples/cymbal.wav" },
             envelope: { attack: 0.001, release: 0.6 }
         }));
 
         //  Tom
         loadPromises.push(createSampler('tom', {
-            urls: { C1: "./public/samples/tom.wav" },
+            urls: { C1: "/beat_sequencer/samples/tom.wav" },
             envelope: { attack: 0.001, release: 0.3 }
         }));
 
@@ -407,11 +410,11 @@ currentStepLine.style.height = `${allStepsContainerHeight}px`;
 
             instruments['bass'] = new Tone.Sampler({
                 urls: {
-                    "G2": "./public/samples/bass_G2.wav",
-                    "D3": "./public/samples/bass_D3.wav",
-                    "C3": "./public/samples/bass_C3.wav",
-                    "A2": "./public/samples/bass_A2.wav",
-                    "E2": "./public/samples/bass_E2.wav",
+                    "G2": "/beat_sequencer/samples/bass_G2.wav",
+                    "D3": "/beat_sequencer/samples/bass_D3.wav",
+                    "C3": "/beat_sequencer/samples/bass_C3.wav",
+                    "A2": "/beat_sequencer/samples/bass_A2.wav",
+                    "E2": "/beat_sequencer/samples/bass_E2.wav",
                 },
                 release: 1.5,
                 onload: resolve
