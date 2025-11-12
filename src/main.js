@@ -1,3 +1,5 @@
+console.log('Base path:', import.meta.env.BASE_URL);
+
 let recordButtonEnabled = false;
 
 function enableRecordButtonOnce() {
