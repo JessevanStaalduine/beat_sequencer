@@ -212,8 +212,8 @@ html, body {
   border-radius: 4px;
   color: var(--text-color);
   border: 1px solid var(--accent-color);
-  margin-bottom: 2.5px;
-  padding: 8px;
+  margin-bottom: 2px;
+  padding: 7px;
   background-color: rgba(31, 31, 31, 1);
   transition: background-color 0.3s ease;
   font-size: 14px;
