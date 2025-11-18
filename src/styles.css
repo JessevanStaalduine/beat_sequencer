@@ -103,6 +103,8 @@ html, body {
 
 .main-layout {
   display: flex; 
+  gap: 10px;
+  background-color: #1f1f24;
 }
 
 #noteCanvasContainer {
@@ -116,9 +118,12 @@ html, body {
 }
 
 .sidebar-wrapper {
-  background: linear-gradient(-45deg, #9a2121, #333333, #002444, #880000);
+  background: linear-gradient(-45deg, #9a2121, #1a1a1a, #002444, #880000);
   background-size: 200% 200%;
   animation: gradientMove 5s ease infinite;
+  box-shadow:
+           10px 0 15px -10px rgb(31, 30, 46),
+    inset -20px 0 15px -10px rgba(59, 59, 59, 0.4);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -136,7 +141,7 @@ html, body {
   height: 70vh;
   width: 160px;
   padding: 7.5px;
-  background: linear-gradient(-45deg, #9a2121, #333333, #002444, #880000);
+  background: linear-gradient(-45deg, #9a2121, #1a1a1a, #002444, #880000);
   background-size: 200% 200%;
   animation: gradientMove 5s ease infinite;
   border: 1px solid #9a2121;
@@ -307,8 +312,8 @@ html, body {
 }
 
 #loopCount{
-  margin-top: 10px; 
-  margin-bottom: 10px;
+  margin-top: 5px; 
+  margin-bottom: 5px;
   width: 85%;
 }
 
@@ -323,6 +328,8 @@ html, body {
 
 .sequencer {
   display: flex;
+  width: fit-content;
+  margin: 0 auto;
   flex-direction: column;
   align-items: center;
   font-family: sans-serif;
@@ -331,6 +338,8 @@ html, body {
 
 .sequencer-container {
   display: flex;
+  width: fit-content;          /* houdt alles compact */
+  margin: 0 auto;              /* centreert binnen de wrapper */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -418,7 +427,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 0 4px rgba(207, 0, 0, 1);
+  box-shadow: inset 0 0 4px rgb(255, 44, 44);
 }
 
 .melody-labels,
