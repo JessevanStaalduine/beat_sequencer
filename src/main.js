@@ -3,7 +3,8 @@
 // git commit -m "Fix for GitHub Pages"
 // git push origin main
 
-// bpm klopt nog niet. hij staat op 100 in het begin, maar speelt af op 120. dat merk je zodra je met de bpm slider gaat schuiven.
+// hoe ziet het eruit op groter scherm?
+
 
 let recordButtonEnabled = false;
 
