@@ -3,6 +3,8 @@
 // git commit -m "Fix for GitHub Pages"
 // git push origin main
 
+// bpm klopt nog niet. hij staat op 100 in het begin, maar speelt af op 120. dat merk je zodra je met de bpm slider gaat schuiven.
+
 let recordButtonEnabled = false;
 
 function enableRecordButtonOnce() {
@@ -634,11 +636,11 @@ const bpmSlider = document.getElementById("bpmSlider");
 const bpmValue = document.getElementById("bpmValue");
 
 // Zet initiële waarden
-bpmSlider.min = 60;
-bpmSlider.max = 140;
-bpmSlider.value = 100;
-bpmValue.textContent = 100;
-Tone.Transport.bpm.value = 100;
+bpmSlider.min = 80;
+bpmSlider.max = 160;
+bpmSlider.value = 120;
+bpmValue.textContent = 120;
+Tone.Transport.bpm.value = 120;
 
 bpmSlider.addEventListener("input", () => {
   const newTempo = parseInt(bpmSlider.value);
